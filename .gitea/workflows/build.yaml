@@ -1,11 +1,13 @@
 name: Build morthimer/caddy-homelab image
+run-name: ${{ gitea.actor }} is building a new image
 on: [push]
+
 env:
   REPOSITORY: git.int.morthimer.fr:8443
   CADDY_VERSION: 2.7.6
   CADDY_DOCKER_PROXY_VERSION: 2.8.11
 
-job:
+jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -17,8 +19,8 @@ job:
           dockerfile: Dockerfile
 
   build:
-    needs: lint
     runs-on: ubuntu-latest
+    needs: lint
     steps:
       - name: Repository login
         uses: docker/login-action@v3

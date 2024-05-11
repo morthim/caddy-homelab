@@ -2,6 +2,8 @@ name: Build morthimer/caddy-homelab image
 on: [push]
 env:
   REPOSITORY: git.int.morthimer.fr:8443
+  CADDY_VERSION: 2.7.6
+  CADDY_DOCKER_PROXY_VERSION: 2.8.11
 
 job:
   lint:
@@ -30,3 +32,6 @@ job:
         with:
           push: true
           tags: $REPOSITORY/${{ gitea.repository }}:latest
+          build-args: |
+            WEBSERVER_VERSION=$CADDY_VERSION
+            DOCKER_PROXY_VERSION=$CADDY_DOCKER_PROXY_VERSION

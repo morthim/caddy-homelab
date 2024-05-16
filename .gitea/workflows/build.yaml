@@ -33,6 +33,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_REGISTRY }}/${{ gitea.repository }}:latest
+            ${{ secrets.DOCKER_REGISTRY }}/${{ gitea.repository }}:${{ env.CADDY_VERSION }}-${{ env.CADDY_DOCKER_PROXY_VERSION }}
           build-args: |
             WEBSERVER_VERSION=${{ env.CADDY_VERSION }}
             DOCKER_PROXY_VERSION=${{ env.CADDY_DOCKER_PROXY_VERSION }}

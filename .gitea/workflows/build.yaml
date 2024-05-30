@@ -2,7 +2,7 @@ name: Build morthimer/caddy-homelab image
 on: [push]
 
 env:
-  CADDY_VERSION: 2.7.6
+  CADDY_VERSION: 2.8.1
   CADDY_DOCKER_PROXY_VERSION: 2.8.11
 
 jobs:
